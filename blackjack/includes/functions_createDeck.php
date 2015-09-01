@@ -9,7 +9,7 @@ $cards = array (
     "Nine", "Ten", "Jack", "Queen", "King", "Ace"
 );
 
-//function createDeck - it will create a deck of 52 cards. Todo - wrap it into a function
+//function createDeck - it will create a deck of 52 cards. 
 $deck = array();
 
 foreach ($colors as $color) {
