@@ -1,30 +1,31 @@
 <?php
-function calculateValues ($a, $b)
-{
-    $c = $a +$b;
-    return calculateMoreValues ($c, $a);
-    
+
+$suits = array (
+    "Spades", "Hearts", "Clubs", "Diamonds"
+);
+
+$faces = array (
+    "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
+    "Nine", "Ten", "Jack", "Queen", "King", "Ace"
+);
+
+//function createDeck - it will create a deck of 52 cards. Todo - wrap it into a function
+$deck = array();
+
+foreach ($suits as $suit) {
+    foreach ($faces as $face) {
+        $deck[] = array ("face"=>$face, "suit"=>$suit);
+    }
 }
 
-function calculateMoreValues ($a, $b)
-{
-    return $a - $b;
-}
+//function drawCard - shuffling a deck and drawing a card. Todo - wrap it into a function
+shuffle($deck);
 
-echo calculateValues(10,20);
+$card = array_shift($deck);
 
-function myFunction ($param1, $param2 = false) {
-    $param2 = $param2 == false ? 'empty' : $param2;
-    return $param1 . '' . $param2;
-}
+echo $card['face'] . ' of ' . $card['suit'];
+echo '<br>';
+print_r($deck);
 
-echo myFunction('The second param is');
-echo '<br />';
-echo myFunction('The second param is', 'not empty');
-/* returns null */
-
-function myFunction1() {
-}
-var_dump (myFunction1());
 
 ?>
