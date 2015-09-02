@@ -39,7 +39,6 @@ class blackJack {
 					$this->deck[] = array("suit" => $suit, "face" => $face, "value" => $value); 
                 } 
             }
-			return 
         }
 	}
 
@@ -53,5 +52,5 @@ print_r ($obj->faces);
 echo '<br>';
 print_r ($obj->faces);
 echo '<br>';
-var_dump ($obj->createDeck($obj->deck));
+var_dump ($obj->deck);
 ?>
