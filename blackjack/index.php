@@ -1,30 +1,36 @@
 <?php
-function calculateValues ($a, $b)
-{
-    $c = $a +$b;
-    return calculateMoreValues ($c, $a);
-    
-}
+/*This is a working draft 
+of my BlackJack game in PHP
+which I try to make while I receive Zend-training
+Art Aksenovs
+03.09.2015
+*/
+include ('includes/functions.php');
+$obj = new Deck;
+var_dump ($obj->suits);
+echo '<br>';
+print_r ($obj->faces);
+echo '<br>';
+echo '<br>';
+print_r ($obj->deck);
+echo '<br>';
+echo '<br>';
+echo 'Test test';
+print_r ($obj->card);
+echo '<br><br>';
+shuffle($obj->deck);
 
-function calculateMoreValues ($a, $b)
-{
-    return $a - $b;
-}
+$card = array_shift($obj->deck);
 
-echo calculateValues(10,20);
+echo $card['face'] . $card['suit'];
+$img_name = $card['face'] . $card['suit'];
+echo "<img src='cards/2c.jpg'>";
+echo '<br><br>';
+echo "<img src='cards/' . \"$img_name\" . '.jpg'>";
+echo '<br><br>';
+echo 'And now with the picture! Random Card';
+/*echo "<img src='cards/'. $card[\'suit\'] . $card["suit"]'
+echo "<img src='cards/" . $card['suit'] . $card["suit"]'.jpg'>"; 
 
-function myFunction ($param1, $param2 = false) {
-    $param2 = $param2 == false ? 'empty' : $param2;
-    return $param1 . '' . $param2;
-}
-
-echo myFunction('The second param is');
-echo '<br />';
-echo myFunction('The second param is', 'not empty');
-/* returns null */
-
-function myFunction1() {
-}
-var_dump (myFunction1());
-
+*/
 ?>
