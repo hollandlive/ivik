@@ -1,31 +1,20 @@
 <?php
-//I create a class for BlackJack game
-class blackJack {
-	
-	//variable suits holds an array of 4 suites
-	public $suits = array (
-    "Spades", "Hearts", "Clubs", "Diamonds"
-	);
-	        
-	//variable faces holds an array of 13 faces
-	public $faces = array(2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A");
-	
+//I create a class 'Deck' for BlackJack game
+Class Deck {
+    public $suits = array ('Spades', 'Hearts', 'Clubs', 'Diamonds');
+	public $faces = array("A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K");
 	public $deck = array();
+	public $card;
+	public $value=0;
 
-	//this variable holds a score of a random card
-	public $cardValue;
-	//this variable holds a random card from the deck array
-	public $randomCard;
 
-	
-	//With this function I create a deck array to hold up all 52 cards 	
 	public function __construct() { 
             
             //This function will build a simple 52 card deck for me
             foreach($this->suits as $suit) { 
                 foreach($this->faces as $face) { 
-                    
-                    // Values for Cards 
+                    //I introduce a local variable $value to hold a score Number of a card
+					
                     $value = $face;
 					
                     if(!is_numeric($face)) 	{
@@ -38,19 +27,17 @@ class blackJack {
                     
 					$this->deck[] = array("suit" => $suit, "face" => $face, "value" => $value); 
                 } 
-            }
+            }// end of a loop in loop
+			
+			return $this->randomCard();
         }
-	}
-
-	
-
-
-$obj = new blackJack();
-print_r ($obj->suits);
-echo '<br>';
-print_r ($obj->faces);
-echo '<br>';
-print_r ($obj->faces);
-echo '<br>';
-var_dump ($obj->deck);
+		
+		public function randomCard() { 
+		 shuffle($this->deck);
+		 $card = array_shift($this->deck);
+		 //var_dump $this->card;
+		 return $this->card['face'];
+		 echo ($this->card['face']);
+		}
+}//end of the class
 ?>

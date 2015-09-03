@@ -1,30 +1,26 @@
 <?php
-function calculateValues ($a, $b)
-{
-    $c = $a +$b;
-    return calculateMoreValues ($c, $a);
-    
-}
+/*This is a working draft 
+of my BlackJack game in PHP
+which I try to make while I receive Zend-training
+Art Aksenovs
+03.09.2015
+*/
+include ('includes/functions.php');
+$obj = new Deck;
+var_dump ($obj->suits);
+echo '<br>';
+print_r ($obj->faces);
+echo '<br>';
+echo '<br>';
+print_r ($obj->deck);
+echo '<br>';
+echo '<br>';
+echo 'Test test';
+print_r ($obj->card);
+shuffle($obj->deck);
 
-function calculateMoreValues ($a, $b)
-{
-    return $a - $b;
-}
+$card = array_shift($obj->deck);
 
-echo calculateValues(10,20);
-
-function myFunction ($param1, $param2 = false) {
-    $param2 = $param2 == false ? 'empty' : $param2;
-    return $param1 . '' . $param2;
-}
-
-echo myFunction('The second param is');
-echo '<br />';
-echo myFunction('The second param is', 'not empty');
-/* returns null */
-
-function myFunction1() {
-}
-var_dump (myFunction1());
+echo $card['face'] . ' of ' . $card['suit'];
 
 ?>
