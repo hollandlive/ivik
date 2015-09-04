@@ -17,10 +17,20 @@ echo '<br>';
 echo '<br>';
 echo 'Test test';
 print_r ($obj->card);
+echo '<br><br>';
 shuffle($obj->deck);
 
 $card = array_shift($obj->deck);
 
-echo $card['face'] . ' of ' . $card['suit'];
+echo $card['face'] . $card['suit'];
+$img_name = $card['face'] . $card['suit'];
+echo "<img src='cards/2c.jpg'>";
+echo '<br><br>';
+echo "<img src='cards/' . \"$img_name\" . '.jpg'>";
+echo '<br><br>';
+echo 'And now with the picture! Random Card';
+/*echo "<img src='cards/'. $card[\'suit\'] . $card["suit"]'
+echo "<img src='cards/" . $card['suit'] . $card["suit"]'.jpg'>"; 
 
+*/
 ?>
