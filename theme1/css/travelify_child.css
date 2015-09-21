@@ -1,0 +1,34 @@
+/*
+Theme Name: Travelify Child
+Theme URI: http://arthem-info/travelify-child
+Author: Art Aksenovs
+Author URI: http://arthem.info
+Description: Travelify Child Theme
+Tags: light, custom-menu, custom-header, custom-background, custom-colors, two-columns, right-sidebar, theme-options, threaded-comments, full-width-template, sticky-post, translation-ready, gray, blue, featured-images, theme-options, rtl-language-support
+License: GPL
+Template: travelify
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: mythemeshop
+Point WordPress Theme, Copyright 2013 MyThemeShop.
+Point is distributed under the terms of the GNU General Public License v3
+*/
+ @import url("../travelify/style.css");
+ @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+body {
+	background-color: #6ADEE0;
+}
+.container .clearfix, .hgroup-wrap .clearfix, .hgroup-right{
+	background-color: #3FB4D8;
+}
+.entry-content{
+	background-color: #58CBF9;
+}
+body,input,textarea,article {
+	color: white;
+	font: 18px Helvetica, sans-serif;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 100;
+	line-height: 24px;
+	word-wrap: break-word;
+	-ms-word-wrap: break-word;
+}
