@@ -5,6 +5,6 @@ and constants
 in my simple program*/
 $a = array(	'1'=>1,
 			'2'=>2);
-echo $a[1] . 'br';
+echo $a[1] . '<br>';
 echo 'This is line ' . __LINE__ . ' of a program';
 ?>
