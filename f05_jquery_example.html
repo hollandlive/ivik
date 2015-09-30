@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--Live example at http://arthem.info/syntax.html -->
+<html>
+	<head>
+		<title>jQuery Syntax</title>
+		<link rel="stylesheet" href="assets/css/normalize.css">
+		<link rel="stylesheet" href="assets/css/styles.css">
+	</head>
+	<body>
+	<h1>JQuery Syntax</h1>
+	<p>Hello there! This is some text</p>
+	<div id="box">a box</div>
+	<div class="thing">a thing</div>
+	<button>Hide</button>
+	<!--Load CDN first-->
+	<script src="//code.jquery.com/jquery-2.1.4.min.jss"></script>
+	<!--If CDN is not available load local version-->
+	<script>window.jquery || document.write('<script src="assets/js/jquery-2.1.4.js"><\/script>');</script>
+	<script>
+	$(function() {
+	$('h1').css("color","red");
+	$('#box').hide();
+	$("button").click(function() {
+		$('.thing').hide(1000);
+	});
+});</script>
+	</body>
+</html>
