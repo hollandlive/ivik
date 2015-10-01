@@ -11,7 +11,7 @@
  */
 add_filter('login_errors', 'wp_login_was_unsuccessful');
 function wp_login_was_unsuccessful(){
-	$abc = "https://tpc.googlesyndication.com/daca_images/simgad/1265219045391557751";
+	$abc = "http://arthem.info/blog/wp-content/uploads/2015/10/w013.jpg";
 	return "<img src='$abc'>" . "<br>" . "You are not Logged In man!!!";
 	//return "Login unsucess";
 }
