@@ -1,71 +1,55 @@
+
 <?php
-function buildDeck() 
+/**********************
+* Value FUNCTION**
+***********************/
+function createDeck() {
+    $faces = array("Spades", "Clubes", "Hearts", "Diamonds");
+    $cards = array(
+                    'Two' => 2, 'Three' => 3, 'Four' => 4, 
+                    'Five'=> 5, 'Six'=> 6, 'Seven'=> 7, 
+                    'Eight' => 8, 'Nine'=> 9, 'Ten'=> 10, 
+                    'Jack' => 10, 'Queen' => 10, 'King' => 10, 'Ace' => 11
+                    );
+    foreach ($faces as $face) {
+        foreach ($cards as $card=>$value) {
+            $deck[] = array ('card'=>$card, 'face'=>$face, 'value'=>$value);
+        }
+        return $deck;
+    }
 
-{
-		$suits = array('h', 'd', 'c', 's');
-		$faces = array
-		(
-			'A' => 1,
-			'2' => 2,
-			'3' => 3,
-			'4' => 4,
-			'5' => 5,
-			'6' => 6,
-			'7' => 7,
-			'8' => 8,
-			'9' => 9,
-			'10' => 10,
-			'j' => 10,
-			'q' => 10,
-			'k' => 10,
-		);
-		
-		foreach ($suits as $suit) 
-		{
-				foreach ($faces as $face => $value) 
-				{
-					$deck[] = array ('suit' => $suit, 'face' => $face, '$value' => $value);
-				}
-		}
-		
-		return $deck;
 }
 
-function drawRandomCard($deck) 
-{
-	shuffle($deck);
-	$cards = [];
-	
-	for ($i=0; $i<2; $i++) 	
-	{
-		$cards['player'][] = array_shift($deck); //???? - first array_shift deck twice
-		$cards['dealer'][]= array_shift($deck);
-	}
-	
-	$cards['rest_cards'] = $deck;
-	
-	return $cards;
+function drawCard ($deck) {
+    shuffle($deck);
+    $hand = [];
+    for ($i=0; $i<2; $i++) {
+        $hand['dealer'][] = array_shift($deck);
+        $hand['player'][] = array_shift($deck);
+    }
+    $hand['restCards'] = $deck; //return the array rest cards to the $deck
+    //$hand has now ['restCards'] vars, ['dealer'], ['player']
+    return $hand;
 }
 
-function removeCard($cards) 
-{
-	$card[] = array_shift($cards); //???? and then array_shift from cards (which is the rest cards of the deck???)
-	$card['rest_cards'] = $cards;
+function addCard($hand) {
 
-	return $card;
-	
+$addNewCard[] = array_shift($hand);
+$addNewCard['restCards'] = $hand;
+
+return $addNewCard;
+}
+function evaluateHand($hand) {
+    $result ['player'] = 0;
+    $result ['dealer'] = 0;
+       foreach ($hand as $card) {
+        if ($value > 11 && $card['face'] == 'Ace') {
+            $value = $value + 1;
+        } else {
+            $value = intval($value) + intval($faces[$card['face']]);
+        }
+    }
+    return $value;
 }
 
-function calculateValue($player_value = false, $dealer_value = false) 
-{
-	foreach ($player_value as $card) 
-	{
-		$result ['player'] = 0;
-		$result ['dealer'] = 0;
-		
-		$result ['player'] += $card['value'];
-	}
-	
-	return $result;
-}
 ?>
