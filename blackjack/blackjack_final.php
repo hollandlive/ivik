@@ -1,26 +1,11 @@
 <?php
-/*im re-writing everything in OOP now */
-
+/*
+Show the array of 52 cards and the image of the first card in the array
+*/
 class Deck
 	
 	{
-	/*public $suits = array('diamonds', 'clubs', 's', 'h'); //there are 4 suits presented
-	public $faces = array(
-	"2"=>2, 
-	"3"=>3, 
-	"4"=>4, 
-	"5"=>5, 
-	"6"=>6, 
-	"7"=>7, 
-	"8"=>8,
-    "9"=>9, 
-	"10"=>10, 
-	"j"=>10, 
-	"q"=>10, 
-	"k"=>10, 
-	"a"=>11
-	); //there are 13 faces presented in an array. I initialize Ace as a card with value 11
-	*/
+
 	public $deck = array();//an array of 52 cards
 	public $suit;
 	public $card = '';
@@ -69,7 +54,7 @@ class Deck
 
 	
 
-	public function getCard()
+	public function getDeck()
 	{
 
 			//$this->suits[] = shuffle($this->suits);
@@ -82,10 +67,10 @@ class Deck
 		foreach($this->deck as $card) {
 			$this->deck[] = $card;
 			$card = implode('',$card) . '.jpg';
-			
+			return $card;
 
 		}
-		return $card;
+		
 		//return ($this->deck);
 	}
 
@@ -102,9 +87,10 @@ class Deck
 //print_r($ab);
 $bc = new Deck();
 echo '<br>';
+print_r($bc->getDeck());
 $img = $bc->getImage();
-//print_r($bc->getCard());
-echo "<img src =\"cards/$img\">"
+
+echo "<img src =\"cards/$img\">";
 //print_r($bc->getImage());
 //print_r($bc->drawImage());
 
